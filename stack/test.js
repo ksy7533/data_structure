@@ -13,3 +13,16 @@ function test() {
   console.log(stack.peek());
   console.log(stack.data);
 }
+
+/* 회문 검사 */
+function isPaindrome(word) {
+  const result = word; //비교군
+  const arrayWord = word.split('');
+  const stack = new Stack();
+  arrayWord.forEach(item => stack.push(item));
+  let reversWord = '';
+  arrayWord.forEach(item => {
+    reversWord += stack.pop();
+  });
+  return result === reversWord;
+}
