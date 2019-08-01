@@ -21,8 +21,23 @@ function isPaindrome(word) {
   const stack = new Stack();
   arrayWord.forEach(item => stack.push(item));
   let reversWord = '';
-  arrayWord.forEach(item => {
+  while(stack.top !== 0) {
     reversWord += stack.pop();
-  });
+  }
   return result === reversWord;
+}
+
+/* 진법 변환 */
+function mulBase(num, base) {
+  let n = num;
+  const stack = new Stack();
+  do {
+    stack.push(n % base);
+    n = Math.floor(n / base);  
+  } while (n !== 0);
+  let str = '';
+  while (stack.top !== 0) {
+    str += stack.pop();
+  }
+  return str;
 }
