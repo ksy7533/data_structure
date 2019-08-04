@@ -34,3 +34,26 @@ Queue.prototype.empty = function() {
   return this.data.length === 0;
 }
 
+
+function PriorityQueue() {
+  Queue.apply(this, arguments);
+};
+/* 상속 */
+PriorityQueue.prototype = Object.create(Queue.prototype);
+PriorityQueue.prototype.constructor = PriorityQueue;
+PriorityQueue.prototype.dequeue = function() {
+  // debugger
+  let standardNum = 0;
+  this.data.forEach((item, index)=> {
+    if(item.priority < this.data[standardNum].priority) {
+      standardNum = index;
+    }
+  });
+  return this.data.splice(standardNum, 1);
+};
+
+PriorityQueue.prototype.toString = function() {
+  let str = '';
+  this.data.forEach(item => str += ` ${item.name}`);
+  return str;
+};
