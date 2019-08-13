@@ -32,3 +32,20 @@ LList.prototype.display = function() {
     currentNode = currentNode.next;
   }
 }
+
+/* 이전 엘리멘트 찾기 */
+LList.prototype.findPrevious = function(item) {
+  let currentNode = this.head;
+  while(currentNode.element !== null && currentNode.next.element !== item) {
+    currentNode = currentNode.next;
+  }
+  return currentNode;
+}
+
+/* 엘리멘트 삭제 */
+LList.prototype.remove = function(item) {
+  let findPrevNode = this.findPrevious(item);
+  if(findPrevNode !== null) {
+    findPrevNode.next = findPrevNode.next.next;
+  }
+}

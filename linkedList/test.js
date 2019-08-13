@@ -7,5 +7,7 @@ function test() {
   twice.insert('쯔위', 'head');
   twice.insert('다현', '쯔위');
   twice.insert('사나', '다현');
+  // debugger
+  twice.remove('다현');
   twice.display();
 };
