@@ -20,7 +20,7 @@ Dictionary.prototype.remove = function(key) {
 }
 
 Dictionary.prototype.showAll = function() {
-  Object.keys(this.datastore).forEach(key => console.log(key + ' = ' + this.datastore[key]));
+  Object.keys(this.datastore).sort().forEach(key => console.log(key + ' = ' + this.datastore[key]));
 }
 
 /* 항목의 갯수 출력 */
