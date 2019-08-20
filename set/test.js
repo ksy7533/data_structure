@@ -11,4 +11,11 @@ function test() {
   }
   twice.remove('사나');
   console.log(twice.show());
+
+  console.log('========== 합집합 ============');
+  const redvelvet = new Set();
+  redvelvet.add('아이린');
+  redvelvet.add('조이');
+  redvelvet.add('모모');
+  console.log(twice.union(redvelvet).show());
 }

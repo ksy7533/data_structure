@@ -45,3 +45,30 @@ Set.prototype.remove = function(item) {
 Set.prototype.show = function() {
   return this.dataStore;
 }
+
+/*
+* 집합에 해당 멤버 요소가 있는지 확인
+*/
+Set.prototype.contains = function(item) {
+  const pos = this.dataStore.indexOf(item);
+  if(pos > -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/*
+* 합집합
+*/
+Set.prototype.union = function(set) {
+  const tempSet = new Set();
+  this.dataStore.forEach(item => {
+    tempSet.add(item);
+  });
+  const members = set.show();
+  members.forEach(item => {
+    if(!tempSet.contains(item)) tempSet.add(item);
+  });
+  return tempSet;
+}
