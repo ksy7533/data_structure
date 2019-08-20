@@ -18,4 +18,7 @@ function test() {
   redvelvet.add('조이');
   redvelvet.add('모모');
   console.log(twice.union(redvelvet).show());
+
+  console.log('========== 교집합 ============');
+  console.log(twice.intersect(redvelvet).show());
 }

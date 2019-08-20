@@ -72,3 +72,14 @@ Set.prototype.union = function(set) {
   });
   return tempSet;
 }
+
+/*
+* 교집합
+*/
+Set.prototype.intersect = function(set) {
+  const tempSet = new Set();
+  this.dataStore.forEach(item => {
+    if(set.contains(item)) tempSet.add(item);
+  });
+  return tempSet;
+}
