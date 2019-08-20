@@ -9,6 +9,14 @@ function HashTable() {
   this.table = new Array(137);
 };
 
+/**
+ * 중복된 해시값을 가진 요소들을 처리하기 위해 2차원 배열 설정
+ */
+// HashTable.prototype.buildChains = function() {
+//   this.table.forEach(item => item = new Array());
+//   console.log(this.table)
+// }
+
 HashTable.prototype.simpleHash = function(data) {
   let total = 0;
   for (let i = 0; i< data.length; i++) {
@@ -32,8 +40,14 @@ HashTable.prototype.betterHash = function(data) {
 
 HashTable.prototype.put = function(data) {
   // const pos = this.simpleHash(data);
-  const pos = this.betterHash(data);
-  this.table[pos] = data;
+  // const pos = this.betterHash(data);
+  // this.table[pos] = data;
+
+  const pos = this.simpleHash(data);
+  if(this.table[pos] === undefined) {
+    this.table[pos] = new Array();
+  }
+  this.table[pos].push(data);
 }
 
 /**
