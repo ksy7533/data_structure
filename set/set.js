@@ -3,7 +3,7 @@
 * 정의
 * - 고유한 요소의 모임을 집합이라 한다.
 * - 집합의 요소를 멤버라한다.
-*- 집합의 멤버는 고유하다  
+* - 집합의 멤버는 고유하다  
 * - 멤버가 하나도 없는 집합을 빈집합이라 한다.
 * - 집합에 포함될수 있는 모든 멤버를 포함하는 집합을 유니버스라 한다
 * - 두 집합의 멤버가 정확하게 같을 때만 집합으로 간주한다
@@ -47,6 +47,13 @@ Set.prototype.show = function() {
 }
 
 /*
+* 집합에 멤버를 보여준다.
+*/
+Set.prototype.size = function() {
+  return this.dataStore.length;
+}
+
+/*
 * 집합에 해당 멤버 요소가 있는지 확인
 */
 Set.prototype.contains = function(item) {
@@ -82,4 +89,23 @@ Set.prototype.intersect = function(set) {
     if(set.contains(item)) tempSet.add(item);
   });
   return tempSet;
+}
+
+/*
+* 서브집합
+*/
+Set.prototype.subset = function(set) {
+  let isSubset = true;
+  if(this.size() < set.size()) {
+    isSubset = false;
+    return isSubset;
+  } else {
+    this.dataStore.some(item => {
+      if(!set.contains(item)) {
+        isSubset = false;
+        return true;
+      }
+    })
+  }
+  return isSubset;
 }

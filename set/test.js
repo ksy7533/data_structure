@@ -21,4 +21,11 @@ function test() {
 
   console.log('========== 교집합 ============');
   console.log(twice.intersect(redvelvet).show());
+
+  console.log('========== 서브집합 여부 ============');
+  const twice2 = new Set();
+  twice2.add('지효');
+  twice2.add('모모');
+  console.log(twice.subset(redvelvet));
+  console.log(twice2.subset(twice));
 }
