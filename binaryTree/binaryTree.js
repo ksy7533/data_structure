@@ -37,3 +37,12 @@ BinaryTree.prototype.insert = function(data) {
     }
   }
 }
+
+// 중위순회
+BinaryTree.prototype.inOrder = function(node) {
+  if(node !== null) {
+    this.inOrder(node.left);
+    console.log(node.show());
+    this.inOrder(node.right);
+  }
+}
