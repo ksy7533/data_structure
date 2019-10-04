@@ -55,3 +55,13 @@ BinaryTree.prototype.getMin = function() {
   }
   return currentNode.data;
 }
+
+// 최댓값
+BinaryTree.prototype.getMax = function() {
+  let currentNode = this.root;
+  while(currentNode.right !== null) {
+    currentNode = currentNode.right;
+  }
+  return currentNode.data;
+}
+
