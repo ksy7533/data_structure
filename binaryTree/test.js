@@ -19,5 +19,6 @@ function test() {
   *      6
   */
 
-  bts.inOrder(bts.root);
+  bts.inOrder(bts.root); // 중위순회
+  console.log(bts.getMin()); // 최솟값
 }

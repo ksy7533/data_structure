@@ -46,3 +46,12 @@ BinaryTree.prototype.inOrder = function(node) {
     this.inOrder(node.right);
   }
 }
+
+// 최솟값
+BinaryTree.prototype.getMin = function() {
+  let currentNode = this.root;
+  while(currentNode.left !== null) {
+    currentNode = currentNode.left;
+  }
+  return currentNode.data;
+}
