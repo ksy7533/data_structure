@@ -22,4 +22,7 @@ function test() {
   bts.inOrder(bts.root); // 중위순회
   console.log(bts.getMin()); // 최솟값
   console.log(bts.getMax()); // 최댓값
+
+  console.log(bts.find(23));
+  console.log(bts.find(6));
 }

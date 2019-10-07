@@ -65,3 +65,21 @@ BinaryTree.prototype.getMax = function() {
   return currentNode.data;
 }
 
+// 노드 찾기
+BinaryTree.prototype.find = function(data) {
+  let currentNode = this.root;
+
+  while(currentNode.data !== data) {
+    if(currentNode.data > data) {
+      currentNode = currentNode.left;
+    }else {
+      currentNode = currentNode.right;
+    }
+    if(currentNode === null) {
+      return null;
+    }
+  }
+
+  return currentNode;
+}
+
